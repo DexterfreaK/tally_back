@@ -1,6 +1,7 @@
 const express = require("express");
 require("dotenv").config();
 const pool = require("../../config/db");
+const { broadcastLeaderboardUpdate } = require("../../lib/websocket");
 
 const createProblem = async (req, res) => {
   const { problemName, description, constraints, examples, testCases } =

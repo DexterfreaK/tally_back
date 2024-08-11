@@ -217,7 +217,24 @@ const createSub = async (req, res) => {
             ]
           );
         }
+
         const allTestsPassed = testCaseResults.every((result) => result.passed);
+        const maxScore = 100;
+        const totalTestCases = testCaseResults.length;
+        const passedTestCases = testCaseResults.filter(
+          (result) => result.passed
+        ).length;
+
+        const score = (passedTestCases / totalTestCases) * maxScore;
+        console.log(`Score: ${score}`);
+        await client.query(`UPDATE submissions SET score = $1 WHERE id = $2`, [
+          score,
+          submissionId,
+        ]);
+
+        if (contest_id) {
+          // broadcastLeaderboardUpdate(contest_id, leaderboardResult.rows);
+        }
 
         if (!allTestsPassed) {
           // Update the submission to mark it as incorrect
@@ -225,7 +242,7 @@ const createSub = async (req, res) => {
             `UPDATE submissions SET is_correct = $1 WHERE id = $2`,
             [false, submissionId]
           );
-          
+
           await client.query("COMMIT");
           return res.status(200).json({
             error: "Some test cases failed",

@@ -2,6 +2,7 @@ const express = require("express");
 require("dotenv").config();
 const pool = require("../../config/db");
 
+
 const getAllContests = async (req, res) => {
   const client = await pool.connect();
   try {
