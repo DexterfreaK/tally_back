@@ -1,7 +1,6 @@
 const express = require("express");
 require("dotenv").config();
 const pool = require("../../config/db");
-const { broadcastLeaderboardUpdate } = require("../../lib/websocket");
 
 const createProblem = async (req, res) => {
   const { problemName, description, constraints, examples, testCases } =
@@ -140,22 +139,24 @@ const getAllProblems = async (req, res) => {
 
 const getAllSubmissions = async (req, res) => {
   const { userId, problemId } = req.query;
+
   if (!userId || !problemId) {
     return res.status(400).json({ error: "userId and problemId are required" });
   }
 
   try {
     const query = `
-      SELECT id, attempted, is_correct ,created_at
+    SELECT id, attempted, is_correct ,created_at
       FROM public.submissions
-      WHERE user_id = $1 AND problem_id = $2;
-    `;
+      WHERE user_id = $1 AND problem_id = $2
+    ORDER BY created_at DESC;
+  `;
+
     const values = [userId, problemId];
 
     const result = await pool.query(query, values);
     const submissions = result.rows;
     res.json({ submissions });
-
   } catch (error) {
     console.error("Error fetching submissions:", error);
     res.status(500).json({ error: "Internal Server Error" });

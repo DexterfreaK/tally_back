@@ -26,7 +26,7 @@ function normalizeOutput(output) {
     .replace(/\r?\n$/, "");
 }
 
-async function runPythonCode(code, inputs = "", timeout = 1000) {
+async function runPythonCode(code, inputs = "", timeout = 100) {
   return new Promise(async (resolve, reject) => {
     let container;
     let timeoutHandle;
