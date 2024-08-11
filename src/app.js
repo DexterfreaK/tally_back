@@ -8,6 +8,7 @@ const app = express();
 const problemRoute = require("./apis/problems/problemRoute");
 const userRoute = require("./apis/user");
 const compiler = require("./apis/compiler/compilerRoute");
+const contest = require("./apis/contest/contestRoute");
 
 app.use(express.json());
 app.use(function (req, res, next) {
@@ -23,4 +24,5 @@ app.use(function (req, res, next) {
 app.use("/problem", problemRoute);
 app.use("/user",userRoute);
 app.use("/compile", compiler);
+app.use("/contest", contest);
 module.exports = app;
