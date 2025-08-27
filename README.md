@@ -6,7 +6,7 @@ This project is a coding platform built with Node.js and Next.js. It features a 
 <img width="1440" height="793" alt="Screenshot 2025-08-27 at 12 09 19 PM" src="https://github.com/user-attachments/assets/f5e8a505-8bb0-49bb-bcca-5b3a0e421d0d" />
 <img width="1440" height="791" alt="Screenshot 2025-08-27 at 12 12 36 PM" src="https://github.com/user-attachments/assets/45568326-f304-416c-9a40-c2849f905eff" />
 
-### Link for the presentation - [Link]([url](https://drive.google.com/file/d/1_lIZp1gsngGv1QrOGadXydkq0Gg1SkxZ/view?usp=sharing))
+### Link for the presentation - [Link](https://drive.google.com/file/d/1_lIZp1gsngGv1QrOGadXydkq0Gg1SkxZ/view?usp=sharing)
 ## Features
 - Backend: Node.js, PostgreSQL, Docker (Dockerode)
 - Frontend: Next.js, ShadCN
