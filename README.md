@@ -1,6 +1,4 @@
-Here's a basic README file for your coding platform project:
 
----
 
 # Coding Platform Project
 
@@ -99,7 +97,3 @@ coding-platform/
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
-You can customize this README further based on your project's specific requirements and details.
